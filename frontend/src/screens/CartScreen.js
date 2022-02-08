@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
-import { Link, useParams, useLocation,useNavigate } from "react-router-dom";
+import { Link, useParams, useLocation, useNavigate } from "react-router-dom";
 
 import {
   Row,
@@ -12,7 +12,7 @@ import {
   Button,
   Card,
 } from "react-bootstrap";
-import { addToCart ,removeFromCart} from "../actions/cartActions";
+import { addToCart, removeFromCart } from "../actions/cartActions";
 
 const CartScreen = () => {
   const { id } = useParams();
@@ -33,11 +33,9 @@ const CartScreen = () => {
     dispatch(removeFromCart(id));
   };
 
-  const checkOutHandler =() =>{
-
-    navigate('login?redirect=shipping');
-
-  }
+  const checkOutHandler = () => {
+    navigate("/login?redirect=shipping");
+  };
 
   return (
     <Row>
@@ -110,7 +108,9 @@ const CartScreen = () => {
                 className="btn-block"
                 disabled={cartItems.length === 0}
                 onClick={checkOutHandler}
-              >Proceed To CheckOut</Button>
+              >
+                Proceed To CheckOut
+              </Button>
             </ListGroup.Item>
           </ListGroup>
         </Card>

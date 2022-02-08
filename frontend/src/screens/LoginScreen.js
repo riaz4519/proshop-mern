@@ -19,12 +19,12 @@ const LoginScreen = () => {
 
   const location = useLocation();
   const redirect = location.search
-    ? new URLSearchParams(location.search).get("redirect")
+    ? "/"+new URLSearchParams(location.search).get("redirect")
     : "";
 
   useEffect(() => {
     if (userInfo) {
-      navigate("/");
+      navigate(redirect);
     }
   }, [navigate, userInfo, redirect]);
 
